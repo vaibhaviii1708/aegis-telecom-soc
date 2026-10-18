@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telecom-amf-core
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+      - name: amf-service
+        image: telecom-registry.internal/amf:v1.2.0
+        env:
+        # Insecure Configuration: Debug mode enabled in production manifest
+        - name: DEBUG_MODE
+          value: "true"
+        # Insecure Configuration: TLS verification disabled
+        - name: TLS_VERIFY
+          value: "false"
+        # Insecure Configuration: Wildcard CORS
+        - name: ALLOWED_CORS
+          value: "*"
+        securityContext:
+          # Insecure Configuration: Container runs with privileged flag
+          privileged: true
