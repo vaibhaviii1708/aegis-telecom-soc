@@ -92,7 +92,7 @@ export const Sidebar = ({ activeTab, onTabChange, backendOnline = true }) => {
               }`}
             />
             <span className={`font-mono text-[10px] font-semibold ${backendOnline ? 'text-emerald-400' : 'text-rose-400'}`}>
-              {backendOnline ? 'ONLINE (8088)' : 'DISCONNECTED'}
+              {backendOnline ? 'ONLINE' : 'OFFLINE / DEMO'}
             </span>
           </div>
         </div>
